@@ -24,8 +24,11 @@ allprojects {
 
 implementation 'com.boringkiller:request:1.0.0.201909201406d'//正式版本号只有三位如1.0.0；测试版本号添加了插件日期时间以及d作为debug版本标志
 然后同步代码。
+
 然后在项目的Application中进行接口地址的初始化操作，如下：
+
 RetrofitUtils.initRequestUrl("http://117.50.57.212/", "HD");
+
 然后即可使用该插件进行网络请求了；
 
 在开发调试阶段，部分请求接口可能为来得及添加到版本中，开发人员可以使用通用接口进行本地调试；
