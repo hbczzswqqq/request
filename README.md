@@ -27,6 +27,8 @@ implementation 'com.boringkiller:request:1.0.0.201909201406d'//正式版本号�
 
 然后在项目的Application中进行接口地址的初始化操作，如下：
 
+AppContext.init(this);
+
 RetrofitUtils.initRequestUrl("http://117.50.57.212/", "HD");
 
 然后即可使用该插件进行网络请求了；
@@ -74,4 +76,16 @@ public static void deleteRequest(String url, Observer<Object> subscriber, Observ
 }
 
 上面的方法中均带有请求地址，请求参数和返回结果均为Object类型，所以在传参时可以根据需要传入Map或者Body等，接收参数后转换为自己的实体类即可 。
-  
+
+在使用上述方法请求返回数据后，如果需要将数据转换为本地的实体类型，可以使用下面代码：
+
+//ComplaintPhoneNumResultEntity为本地的实体类
+
+ComplaintPhoneNumResultEntity object = ConvertTools.convertJson2Entity((LinkedTreeMap) result, ComplaintPhoneNumResultEntity.class);
+
+if (object != null) {
+
+   ......
+
+}
+ 
